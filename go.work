@@ -1,0 +1,23 @@
+go 1.21.3
+
+use ./core/worker
+
+use ./core/rpc
+
+use ./core/s3
+
+use ./core/amqp
+
+use ./core/utils
+
+use ./sdk
+
+use ./coordinator
+
+use ./tests
+
+use ./workers/csvreader
+
+use ./workers/extractor
+
+use ./workers/pgsqlcopysink

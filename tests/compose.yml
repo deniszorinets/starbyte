@@ -1,0 +1,31 @@
+services:
+  minio:
+    image: docker.io/minio/minio
+    container_name: test_minio
+    ports:
+      - 9000:9000
+      - 9001:9001
+    command: [ "server", "/data", "--console-address", ":9001" ]
+    volumes:
+      - minio:/data
+  rabbitmq:
+    image: docker.io/rabbitmq:management-alpine
+    container_name: test_rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+  postgres:
+    image: docker.io/timescale/timescaledb:latest-pg16
+    container_name: test_postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+volumes:
+  minio:
+  pg_data:
