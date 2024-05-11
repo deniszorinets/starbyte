@@ -265,7 +265,7 @@ func TestProcessInput(t *testing.T) {
 	}
 }
 
-func TestProcesStep(t *testing.T) {
+func TestProcessStep(t *testing.T) {
 	amqpMock := NewInputAmqpMock()
 	repositoryMock := &RepositoryMock{MaxRetries: 3, Retries: 0}
 
